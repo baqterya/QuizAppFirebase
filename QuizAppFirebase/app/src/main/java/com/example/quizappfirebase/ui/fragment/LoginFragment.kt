@@ -9,15 +9,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.example.quizappfirebase.data.User
 import com.example.quizappfirebase.databinding.FragmentLoginBinding
 import com.example.quizappfirebase.ui.activity.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
         private val binding get() = _binding!!
+
+    val db = Firebase.firestore
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,12 +72,25 @@ class LoginFragment : Fragment() {
                                     Toast.LENGTH_SHORT
                                 ).show()
 
-                                val intent = Intent(activity, MainActivity::class.java)
-                                intent.flags =
-                                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                intent.putExtra("user_id", firebaseUser.uid)
-                                startActivity(intent)
-                                requireActivity().finish()
+                                db.collection("users")
+                                    .whereEqualTo("userId", firebaseUser.uid)
+                                    .get()
+                                    .addOnSuccessListener {
+                                        for (document in it.documents) {
+                                            val newUser = User(
+                                                firebaseUser.uid,
+                                                document["userName"].toString(),
+                                                email
+                                            )
+
+                                            val intent = Intent(activity, MainActivity::class.java)
+                                            intent.flags =
+                                                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                            intent.putExtra("currentUser", newUser)
+                                            startActivity(intent)
+                                            requireActivity().finish()
+                                        }
+                                    }
                             } else {
                                 Toast.makeText(
                                     requireContext(),
