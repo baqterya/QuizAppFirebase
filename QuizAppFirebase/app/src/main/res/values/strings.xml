@@ -16,4 +16,7 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="login">Login!</string>
     <string name="hint_enter_username">enter username</string>
+    <string name="bottom_menu_favourites">Favourites</string>
+    <string name="bottom_menu_explore">Explore</string>
+    <string name="bottom_menu_your_question_sets">Your Question Sets</string>
 </resources>
