@@ -5,8 +5,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class User(
+    var userId: String? = null,
     var userName: String? = null,
     var userEmail: String? = null,
-    var userQuestionSet: ArrayList<String>,
-    var userFavQuestionSet: ArrayList<String>
+    var userQuestionSet: ArrayList<String> = arrayListOf(),
+    var userFavQuestionSet: ArrayList<String> = arrayListOf()
 ) : Parcelable
