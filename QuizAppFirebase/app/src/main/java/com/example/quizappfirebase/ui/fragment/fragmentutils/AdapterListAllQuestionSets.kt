@@ -10,12 +10,15 @@ import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.QuestionSet
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class AdapterListAllQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>)
     : FirestoreRecyclerAdapter<QuestionSet, AdapterListAllQuestionSets.QuestionSetViewHolder>(options) {
     private val db = Firebase.firestore
+    private val currentUser = Firebase.auth.currentUser
 
     class QuestionSetViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -33,42 +36,45 @@ class AdapterListAllQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>)
         position: Int,
         model: QuestionSet
     ) {
-        val textViewQuestionSetName: TextView = holder.itemView
-            .findViewById(R.id.text_view_question_set_name_all)
-        val imageViewQuestionSetMakeFav: ImageView = holder.itemView
-            .findViewById(R.id.image_view_question_set_make_fav_all)
-        val textViewQuestionSetAuthorName: TextView = holder.itemView
-            .findViewById(R.id.text_view_question_set_author_name_all)
-        val textViewQuestionSetFavCounter: TextView = holder.itemView
-            .findViewById(R.id.text_view_question_set_fav_counter_all)
+        db.collection("users").document(currentUser!!.uid)
+            .get()
+            .addOnSuccessListener { user ->
+                val userFavQuestionSets = user["userFavQuestionSet"] as ArrayList<*>
 
-        textViewQuestionSetName.text = model.questionSetName
-        textViewQuestionSetFavCounter.text = model.questionSetFavCount.toString()
-        textViewQuestionSetAuthorName.text = model.questionSetOwnerName
+                val textViewQuestionSetName: TextView = holder.itemView
+                    .findViewById(R.id.text_view_question_set_name_all)
+                val imageViewQuestionSetMakeFav: ImageView = holder.itemView
+                    .findViewById(R.id.image_view_question_set_make_fav_all)
+                val textViewQuestionSetAuthorName: TextView = holder.itemView
+                    .findViewById(R.id.text_view_question_set_author_name_all)
+                val textViewQuestionSetFavCounter: TextView = holder.itemView
+                    .findViewById(R.id.text_view_question_set_fav_counter_all)
 
-        if (model.questionSetIsFav)
-            imageViewQuestionSetMakeFav.setImageResource(R.drawable.ic_star_full_white)
+                textViewQuestionSetName.text = model.questionSetName
+                textViewQuestionSetFavCounter.text = model.questionSetFavCount.toString()
+                textViewQuestionSetAuthorName.text = model.questionSetOwnerName
 
-        imageViewQuestionSetMakeFav.setOnClickListener {
-            val query = db.collection("questionSets").document("questionSetId")
-            when (model.questionSetIsFav){
-                true -> {
+                if (model.questionSetId in userFavQuestionSets)
                     imageViewQuestionSetMakeFav.setImageResource(R.drawable.ic_star_full_white)
-                    query.update(mapOf(
-                        "questionSetIsFav" to false,
-                        "questionSetFavCount" to model.questionSetFavCount - 1
-                    ))
-                }
-                false -> {
-                    imageViewQuestionSetMakeFav.setImageResource(R.drawable.ic_star_border_white)
-                    query.update(mapOf(
-                        "questionSetIsFav" to true,
-                        "questionSetFavCount" to model.questionSetFavCount + 1
-                    ))
+
+                imageViewQuestionSetMakeFav.setOnClickListener {
+                    val queryQuestionSet = db.collection("questionSets").document(model.questionSetId!!)
+                    val queryUser = db.collection("users").document(currentUser.uid)
+
+                        when (model.questionSetId in userFavQuestionSets) {
+                            true -> {
+                                imageViewQuestionSetMakeFav.setImageResource(R.drawable.ic_star_full_white)
+                                queryQuestionSet.update("questionSetFavCount", model.questionSetFavCount - 1)
+                                queryUser.update("userFavQuestionSet", FieldValue.arrayRemove(model.questionSetId))
+                            }
+                            false -> {
+                                imageViewQuestionSetMakeFav.setImageResource(R.drawable.ic_star_border_white)
+                                queryQuestionSet.update("questionSetFavCount", model.questionSetFavCount + 1)
+                                queryUser.update("userFavQuestionSet", FieldValue.arrayUnion(model.questionSetId))
+                            }
+                        }
                 }
             }
-        }
-
     }
 
 }

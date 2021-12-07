@@ -19,7 +19,7 @@ class ListAllQuestionSetsFragment : Fragment() {
     private var _binding: FragmentListAllQuestionSetsBinding? = null
         private val binding get() = _binding!!
 
-    val db = Firebase.firestore
+    private val db = Firebase.firestore
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
