@@ -12,6 +12,7 @@ import com.example.quizappfirebase.data.QuestionSet
 import com.example.quizappfirebase.databinding.FragmentListAllQuestionSetsBinding
 import com.example.quizappfirebase.ui.fragment.fragmentutils.AdapterListAllQuestionSets
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -31,7 +32,9 @@ class ListAllQuestionSetsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val query = db.collection("questionSets").orderBy("questionSetFavCount")
+        val query = db.collection("questionSets")
+            .whereEqualTo("questionSetIsPrivate", false)
+            .orderBy("questionSetFavCount", Query.Direction.DESCENDING)
 
         val options = FirestoreRecyclerOptions.Builder<QuestionSet>()
             .setQuery(query, QuestionSet::class.java)
