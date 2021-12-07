@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_listFavouriteQuestionSetsFragment_to_listAllQuestionSetsFragment"
             app:destination="@id/listAllQuestionSetsFragment" />
+        <action
+            android:id="@+id/action_listFavouriteQuestionSetsFragment_to_listUsersQuestionSetsFragment"
+            app:destination="@id/listUsersQuestionSetsFragment" />
     </fragment>
     <fragment
         android:id="@+id/listUsersQuestionSetsFragment"
@@ -34,5 +37,8 @@
         <action
             android:id="@+id/action_listUsersQuestionSetsFragment_to_listAllQuestionSetsFragment"
             app:destination="@id/listAllQuestionSetsFragment" />
+        <action
+            android:id="@+id/action_listUsersQuestionSetsFragment_to_listFavouriteQuestionSetsFragment"
+            app:destination="@id/listFavouriteQuestionSetsFragment" />
     </fragment>
 </navigation>

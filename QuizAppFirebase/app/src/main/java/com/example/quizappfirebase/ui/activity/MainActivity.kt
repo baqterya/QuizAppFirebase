@@ -9,6 +9,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.navigation.findNavController
 import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.User
 import com.example.quizappfirebase.databinding.ActivityMainBinding
@@ -25,8 +26,24 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        toolbar = findViewById(R.id.top_toolbar)
+        toolbar = binding.topToolbar
         setSupportActionBar(toolbar)
+
+        binding.bottomNavigationBar.setOnItemSelectedListener {
+            val navController = findNavController(R.id.main_fragment_container)
+            when (it.itemId) {
+                R.id.menu_explore -> {
+                    navController.navigate(R.id.listAllQuestionSetsFragment)
+                }
+                R.id.menu_user_sets -> {
+                    navController.navigate(R.id.listUsersQuestionSetsFragment)
+                }
+                R.id.menu_user_favourites -> {
+                    navController.navigate(R.id.listFavouriteQuestionSetsFragment)
+                }
+            }
+            true
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
