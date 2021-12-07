@@ -11,22 +11,8 @@ data class QuestionSet(
     var questionSetId: String? = null,
     var questionSetName: String? = null,
     var questionSetOwnerId: String? = null,
-    var questionSetFavCount: Int = 0
-) : Parcelable {
-    companion object {
-        private const val TAG = "QUESTION_SET_ERROR"
-
-        fun DocumentSnapshot.toQuestionSet(): QuestionSet? {
-            return try {
-                val questionSetId = getString("questionSetId")!!
-                val questionSetName = getString("questionSetName")!!
-                val questionSetOwnerId = getString("questionSetOwnerId")!!
-                val questionSetFavCount = 0
-                return QuestionSet(questionSetId, questionSetName, questionSetOwnerId, questionSetFavCount)
-            } catch (e: Exception) {
-                Log.e(TAG, "Error converting QuestionSet", e)
-                null
-            }
-        }
-    }
-}
+    var questionSetOwnerName: String? = null,
+    var questionSetFavCount: Int = 0,
+    var questionSetIsPrivate: Boolean = false,
+    var questionSetIsFav: Boolean = false
+) : Parcelable
