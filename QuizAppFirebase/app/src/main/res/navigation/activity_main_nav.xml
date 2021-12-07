@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_listFavouriteQuestionSetsFragment_to_listUsersQuestionSetsFragment"
             app:destination="@id/listUsersQuestionSetsFragment" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.quizappfirebase.data.User" />
     </fragment>
     <fragment
         android:id="@+id/listUsersQuestionSetsFragment"

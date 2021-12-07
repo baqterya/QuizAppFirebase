@@ -9,6 +9,7 @@ data class QuestionSet(
     var questionSetName: String? = null,
     var questionSetOwnerId: String? = null,
     var questionSetOwnerName: String? = null,
+    var questionSetFavUsersId: ArrayList<String> = arrayListOf(),
     var questionSetFavCount: Int = 0,
     var questionSetIsPrivate: Boolean = false,
 ) : Parcelable
