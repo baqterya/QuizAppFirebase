@@ -40,14 +40,6 @@ class ListFavouriteQuestionSetsFragment : Fragment() {
             .whereArrayContains("questionSetFavUsersId", currentUser.userId!!)
             .orderBy("questionSetFavCount", Query.Direction.DESCENDING)
 
-        Log.d("qwerty", "${currentUser.userId}")
-        query.get()
-            .addOnSuccessListener {
-                for (document in it) {
-                    Log.d("qwerty", "${currentUser.userFavQuestionSet} -> ${document["questionSetFavUsersId"]}")
-                }
-            }
-
         val options = FirestoreRecyclerOptions.Builder<QuestionSet>()
             .setQuery(query, QuestionSet::class.java)
             .setLifecycleOwner(requireActivity())
