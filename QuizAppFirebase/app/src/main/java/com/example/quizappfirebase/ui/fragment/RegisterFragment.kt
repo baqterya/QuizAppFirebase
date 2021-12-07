@@ -118,8 +118,8 @@ class RegisterFragment : Fragment() {
     }
 
     private fun addUserToFirestore(newUser: User) {
-        db.collection("users")
-            .add(newUser)
+        db.collection("users").document(newUser.userId!!)
+            .set(newUser)
     }
 
     override fun onDestroyView() {
