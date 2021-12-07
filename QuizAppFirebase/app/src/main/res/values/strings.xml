@@ -19,4 +19,12 @@
     <string name="bottom_menu_favourites">Favourites</string>
     <string name="bottom_menu_explore">Explore</string>
     <string name="bottom_menu_your_question_sets">Your Question Sets</string>
+    <string name="logout">Logout</string>
+    <string name="settings">Settings</string>
+    <string name="addquestionset">addquestionset</string>
+    <string name="question_set_name_dummy">QUESTION SET NAME</string>
+    <string name="favourite_button_desc">favouritequestionsetbutton</string>
+    <string name="question_set_by">By:</string>
+    <string name="author_name_dummy">AUTHOR NAME</string>
+    <string name="fav_counter_dummy">0</string>
 </resources>

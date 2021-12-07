@@ -9,5 +9,30 @@
         android:id="@+id/listAllQuestionSetsFragment"
         android:name="com.example.quizappfirebase.ui.fragment.ListAllQuestionSetsFragment"
         android:label="fragment_list_all_question_sets"
-        tools:layout="@layout/fragment_list_all_question_sets" />
+        tools:layout="@layout/fragment_list_all_question_sets" >
+        <action
+            android:id="@+id/action_listAllQuestionSetsFragment_to_listUsersQuestionSetsFragment"
+            app:destination="@id/listUsersQuestionSetsFragment" />
+        <action
+            android:id="@+id/action_listAllQuestionSetsFragment_to_listFavouriteQuestionSetsFragment"
+            app:destination="@id/listFavouriteQuestionSetsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFavouriteQuestionSetsFragment"
+        android:name="com.example.quizappfirebase.ui.fragment.ListFavouriteQuestionSetsFragment"
+        android:label="fragment_list_favourite_question_sets"
+        tools:layout="@layout/fragment_list_favourite_question_sets" >
+        <action
+            android:id="@+id/action_listFavouriteQuestionSetsFragment_to_listAllQuestionSetsFragment"
+            app:destination="@id/listAllQuestionSetsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listUsersQuestionSetsFragment"
+        android:name="com.example.quizappfirebase.ui.fragment.ListUsersQuestionSetsFragment"
+        android:label="fragment_list_users_question_sets"
+        tools:layout="@layout/fragment_list_users_question_sets" >
+        <action
+            android:id="@+id/action_listUsersQuestionSetsFragment_to_listAllQuestionSetsFragment"
+            app:destination="@id/listAllQuestionSetsFragment" />
+    </fragment>
 </navigation>
