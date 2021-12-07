@@ -14,5 +14,4 @@ data class QuestionSet(
     var questionSetOwnerName: String? = null,
     var questionSetFavCount: Int = 0,
     var questionSetIsPrivate: Boolean = false,
-    var questionSetIsFav: Boolean = false
 ) : Parcelable
