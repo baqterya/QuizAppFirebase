@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.QuestionSet
+import com.example.quizappfirebase.databinding.RecyclerViewQuestionSetFavBinding
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.ktx.auth
@@ -20,7 +21,9 @@ class AdapterListFavQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>)
     private val db = Firebase.firestore
     private val currentUser = Firebase.auth.currentUser
 
-    class QuestionSetViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    class QuestionSetViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val binding = RecyclerViewQuestionSetFavBinding.bind(itemView)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionSetViewHolder {
         val objectView = LayoutInflater.from(parent.context).inflate(
@@ -41,14 +44,10 @@ class AdapterListFavQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>)
             .addOnSuccessListener { user ->
                 val userFavQuestionSets = user["userFavQuestionSet"] as ArrayList<*>
 
-                val textViewQuestionSetName: TextView = holder.itemView
-                    .findViewById(R.id.text_view_question_set_name_fav)
-                val imageViewQuestionSetMakeFav: ImageView = holder.itemView
-                    .findViewById(R.id.image_view_question_set_make_fav_fav)
-                val textViewQuestionSetAuthorName: TextView = holder.itemView
-                    .findViewById(R.id.text_view_question_set_author_name_fav)
-                val textViewQuestionSetFavCounter: TextView = holder.itemView
-                    .findViewById(R.id.text_view_question_set_fav_counter_fav)
+                val textViewQuestionSetName = holder.binding.textViewQuestionSetNameFav
+                val imageViewQuestionSetMakeFav = holder.binding.imageViewQuestionSetMakeFavFav
+                val textViewQuestionSetAuthorName = holder.binding.textViewQuestionSetAuthorNameFav
+                val textViewQuestionSetFavCounter = holder.binding.textViewQuestionSetFavCounterFav
 
                 textViewQuestionSetName.text = model.questionSetName
                 textViewQuestionSetFavCounter.text = model.questionSetFavCount.toString()
