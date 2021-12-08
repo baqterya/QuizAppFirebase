@@ -57,12 +57,25 @@ class ListUsersQuestionSetsFragment : Fragment() {
         binding.listUsersQuestionSetsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         binding.fabUsersQuestionSetsRecyclerView.setOnClickListener {
-            val questionSet = QuestionSet(
-                questionSetName = "Spanish",
+            val questionSet1 = QuestionSet(
+                questionSetName = "Swedish",
                 questionSetOwnerId = userId,
                 questionSetOwnerName = currentUser.userName,
             )
-            addQuestionSetToFirestore(questionSet)
+            addQuestionSetToFirestore(questionSet1)
+            val questionSet2 = QuestionSet(
+                questionSetName = "Finnish",
+                questionSetOwnerId = userId,
+                questionSetOwnerName = currentUser.userName,
+                questionSetIsPrivate = true
+            )
+            addQuestionSetToFirestore(questionSet2)
+            val questionSet3 = QuestionSet(
+                questionSetName = "Silesian",
+                questionSetOwnerId = userId,
+                questionSetOwnerName = currentUser.userName,
+            )
+            addQuestionSetToFirestore(questionSet3)
         }
     }
 
