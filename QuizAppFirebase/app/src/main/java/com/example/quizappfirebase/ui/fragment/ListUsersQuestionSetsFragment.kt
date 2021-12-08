@@ -1,13 +1,19 @@
 package com.example.quizappfirebase.ui.fragment
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.customview.customView
 import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.QuestionSet
 import com.example.quizappfirebase.data.User
@@ -15,6 +21,7 @@ import com.example.quizappfirebase.databinding.FragmentListUsersQuestionSetsBind
 import com.example.quizappfirebase.ui.fragment.fragmentutils.AdapterListUserQuestionSets
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
@@ -57,25 +64,7 @@ class ListUsersQuestionSetsFragment : Fragment() {
         binding.listUsersQuestionSetsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         binding.fabUsersQuestionSetsRecyclerView.setOnClickListener {
-            val questionSet1 = QuestionSet(
-                questionSetName = "Swedish",
-                questionSetOwnerId = userId,
-                questionSetOwnerName = currentUser.userName,
-            )
-            addQuestionSetToFirestore(questionSet1)
-            val questionSet2 = QuestionSet(
-                questionSetName = "Finnish",
-                questionSetOwnerId = userId,
-                questionSetOwnerName = currentUser.userName,
-                questionSetIsPrivate = true
-            )
-            addQuestionSetToFirestore(questionSet2)
-            val questionSet3 = QuestionSet(
-                questionSetName = "Silesian",
-                questionSetOwnerId = userId,
-                questionSetOwnerName = currentUser.userName,
-            )
-            addQuestionSetToFirestore(questionSet3)
+            showAddQuestionSetDialog()
         }
     }
 
@@ -86,5 +75,37 @@ class ListUsersQuestionSetsFragment : Fragment() {
                 db.collection("questionSets").document(it.id)
                     .update("questionSetId", it.id)
             }
+    }
+
+    private fun showAddQuestionSetDialog() {
+        val dialog = MaterialDialog(requireContext())
+            .noAutoDismiss()
+            .customView(R.layout.dialog_add_question_set)
+
+        dialog.findViewById<Button>(R.id.button_add_question_set_dialog).setOnClickListener {
+            val questionSetName = dialog.findViewById<EditText>(R.id.text_input_edit_text_layout_add_question_set_dialog)
+                .text.toString()
+            val isPrivate = dialog.findViewById<SwitchMaterial>(R.id.switch_is_private_add_question_set_dialog)
+                .isChecked
+
+            if (inputCheck(questionSetName)) {
+                val questionSet = QuestionSet(
+                    questionSetName = questionSetName,
+                    questionSetIsPrivate = isPrivate,
+                    questionSetOwnerId = currentUser.userId,
+                    questionSetOwnerName = currentUser.userName
+                )
+                addQuestionSetToFirestore(questionSet)
+                Toast.makeText(requireContext(), "Question Set added!", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            } else {
+                Toast.makeText(requireContext(), "Please enter the name", Toast.LENGTH_SHORT).show()
+            }
+        }
+        dialog.show()
+    }
+
+    private fun inputCheck(name: String): Boolean {
+        return !(TextUtils.isEmpty(name))
     }
 }
