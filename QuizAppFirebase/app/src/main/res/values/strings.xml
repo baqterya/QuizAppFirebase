@@ -27,4 +27,7 @@
     <string name="question_set_by">By:</string>
     <string name="author_name_dummy">AUTHOR NAME</string>
     <string name="fav_counter_dummy">0</string>
+    <string name="create_new_question_set">CREATE NEW QUESTION SET</string>
+    <string name="name">NAME</string>
+    <string name="submit">ADD</string>
 </resources>
