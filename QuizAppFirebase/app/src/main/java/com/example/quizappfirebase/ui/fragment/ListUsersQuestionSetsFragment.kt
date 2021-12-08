@@ -51,7 +51,7 @@ class ListUsersQuestionSetsFragment : Fragment() {
 
         val query = db.collection("questionSets")
             .whereEqualTo("questionSetOwnerId", userId)
-            .orderBy("questionSetFavCount", Query.Direction.DESCENDING)
+            .orderBy("questionSetName")
 
 
         val options = FirestoreRecyclerOptions.Builder<QuestionSet>()

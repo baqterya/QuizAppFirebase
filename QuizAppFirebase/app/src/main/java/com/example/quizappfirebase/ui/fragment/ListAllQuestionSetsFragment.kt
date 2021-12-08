@@ -41,6 +41,7 @@ class ListAllQuestionSetsFragment : Fragment() {
         val query = db.collection("questionSets")
             .whereEqualTo("questionSetIsPrivate", false)
             .orderBy("questionSetFavCount", Query.Direction.DESCENDING)
+            .orderBy("questionSetName")
 
         val options = FirestoreRecyclerOptions.Builder<QuestionSet>()
             .setQuery(query, QuestionSet::class.java)
