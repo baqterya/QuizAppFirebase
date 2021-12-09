@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.QuestionSet
 import com.example.quizappfirebase.databinding.RecyclerViewQuestionSetAllBinding
+import com.example.quizappfirebase.ui.fragment.ListAllQuestionSetsFragmentDirections
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.ktx.auth
@@ -52,6 +54,12 @@ class AdapterListAllQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>)
 
             if (currentUser.uid in model.questionSetFavUsersId)
                 imageViewQuestionSetMakeFav.setImageResource(R.drawable.ic_star_full_white)
+
+            holder.binding.cardViewQuestionSetAllRecyclerView.setOnClickListener {
+                val action = ListAllQuestionSetsFragmentDirections
+                    .actionListAllQuestionSetsFragmentToListCategoriesFragment(model.questionSetId!!)
+                holder.itemView.findNavController().navigate(action)
+            }
 
             imageViewQuestionSetMakeFav.setOnClickListener {
                 val queryQuestionSet = db.collection("questionSets").document(model.questionSetId!!)

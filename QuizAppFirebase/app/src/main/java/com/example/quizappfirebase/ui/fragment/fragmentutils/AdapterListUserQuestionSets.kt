@@ -8,12 +8,14 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatImageButton
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.QuestionSet
 import com.example.quizappfirebase.databinding.RecyclerViewQuestionSetUserBinding
+import com.example.quizappfirebase.ui.fragment.ListUsersQuestionSetsFragmentDirections
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.switchmaterial.SwitchMaterial
@@ -52,6 +54,12 @@ class AdapterListUserQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>
             .setOnClickListener {
                 showEditQuestionSetDialog(holder, model)
             }
+
+        holder.binding.cardViewQuestionSetUserRecyclerView.setOnClickListener {
+            val action = ListUsersQuestionSetsFragmentDirections
+                .actionListUsersQuestionSetsFragmentToListUsersCategoriesFragment(model.questionSetId!!)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     private fun showEditQuestionSetDialog(holder: QuestionSetViewHolder, questionSet: QuestionSet) {
@@ -60,6 +68,8 @@ class AdapterListUserQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>
         val queryQuestionSet =
             db.collection("questionSets").document(questionSet.questionSetId!!)
         val queryAllUsers = db.collection("users")
+        val categoriesQuery = db.collection("categories")
+            .whereEqualTo("categoryParentQuestionSetId", questionSet.questionSetId!!)
 
         val dialog = MaterialDialog(context)
             .noAutoDismiss()
@@ -96,6 +106,11 @@ class AdapterListUserQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>
                                     "userFavQuestionSet",
                                     FieldValue.arrayRemove(questionSet.questionSetId)
                                 )
+                            }
+                        }
+                        categoriesQuery.get().addOnSuccessListener {
+                            it.forEach { category ->
+                                category.reference.delete()
                             }
                         }
                         queryQuestionSet.delete()

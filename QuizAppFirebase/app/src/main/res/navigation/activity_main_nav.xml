@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_listAllQuestionSetsFragment_to_listFavouriteQuestionSetsFragment"
             app:destination="@id/listFavouriteQuestionSetsFragment" />
+        <action
+            android:id="@+id/action_listAllQuestionSetsFragment_to_listCategoriesFragment"
+            app:destination="@id/listCategoriesFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFavouriteQuestionSetsFragment"
@@ -31,6 +34,9 @@
         <argument
             android:name="currentUser"
             app:argType="com.example.quizappfirebase.data.User" />
+        <action
+            android:id="@+id/action_listFavouriteQuestionSetsFragment_to_listCategoriesFragment"
+            app:destination="@id/listCategoriesFragment" />
     </fragment>
     <fragment
         android:id="@+id/listUsersQuestionSetsFragment"
@@ -43,5 +49,35 @@
         <action
             android:id="@+id/action_listUsersQuestionSetsFragment_to_listFavouriteQuestionSetsFragment"
             app:destination="@id/listFavouriteQuestionSetsFragment" />
+        <action
+            android:id="@+id/action_listUsersQuestionSetsFragment_to_listUsersCategoriesFragment"
+            app:destination="@id/listUsersCategoriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listCategoriesFragment"
+        android:name="com.example.quizappfirebase.ui.fragment.ListCategoriesFragment"
+        android:label="fragment_list_categories"
+        tools:layout="@layout/fragment_list_categories" >
+        <action
+            android:id="@+id/action_listCategoriesFragment_to_listAllQuestionSetsFragment"
+            app:destination="@id/listAllQuestionSetsFragment" />
+        <action
+            android:id="@+id/action_listCategoriesFragment_to_listFavouriteQuestionSetsFragment"
+            app:destination="@id/listFavouriteQuestionSetsFragment" />
+        <argument
+            android:name="currentQuestionSetId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/listUsersCategoriesFragment"
+        android:name="com.example.quizappfirebase.ui.fragment.ListUsersCategoriesFragment"
+        android:label="fragment_list_users_categories"
+        tools:layout="@layout/fragment_list_users_categories" >
+        <action
+            android:id="@+id/action_listUsersCategoriesFragment_to_listUsersQuestionSetsFragment"
+            app:destination="@id/listUsersQuestionSetsFragment" />
+        <argument
+            android:name="currentQuestionSetId"
+            app:argType="string" />
     </fragment>
 </navigation>
