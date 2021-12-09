@@ -33,4 +33,9 @@
     <string name="add_question_set_dialog_switch_private">Private</string>
     <string name="edit_question_set">EDIT QUESTION SET</string>
     <string name="edit">EDIT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="category_name_dummy">CATEGORY NAME</string>
+    <string name="create_new_category">CREATE NEW CATEGORY</string>
+    <string name="edit_category">EDIT CATEGORY</string>
 </resources>
