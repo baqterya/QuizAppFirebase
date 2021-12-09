@@ -7,5 +7,5 @@ import kotlinx.parcelize.Parcelize
 data class Category(
     var categoryId: String? = null,
     var categoryName: String? = null,
-    var categoryParentQuestionSet: String? = null,
+    var categoryParentQuestionSetId: String? = null,
 ) : Parcelable
