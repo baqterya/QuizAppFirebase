@@ -55,6 +55,8 @@ class AdapterListUserCategories(options: FirestoreRecyclerOptions<Category>)
 
         val queryCategory =
             db.collection("categories").document(category.categoryId!!)
+        val queryQuestionsAndAnswers = db.collection("questionsAndAnswers")
+            .whereEqualTo("questionAndAnswerParentCategoryId", category.categoryId!!)
 
         val dialog = MaterialDialog(context)
             .noAutoDismiss()
@@ -78,6 +80,11 @@ class AdapterListUserCategories(options: FirestoreRecyclerOptions<Category>)
             .setOnClickListener {
                 AlertDialog.Builder(context)
                     .setPositiveButton("Yes") {_, _ ->
+                        queryQuestionsAndAnswers.get().addOnSuccessListener {
+                            it.forEach { questionAndAnswer ->
+                                questionAndAnswer.reference.delete()
+                            }
+                        }
                         queryCategory.delete()
                         Toast.makeText(context, "Successfully removed ${category.categoryName}", Toast.LENGTH_SHORT).show()
                         dialog.dismiss()

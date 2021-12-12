@@ -1,7 +1,6 @@
 package com.example.quizappfirebase.ui.fragment.fragmentutils
 
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +18,6 @@ import com.example.quizappfirebase.ui.fragment.ListUsersQuestionSetsFragmentDire
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.switchmaterial.SwitchMaterial
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -68,8 +66,10 @@ class AdapterListUserQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>
         val queryQuestionSet =
             db.collection("questionSets").document(questionSet.questionSetId!!)
         val queryAllUsers = db.collection("users")
-        val categoriesQuery = db.collection("categories")
+        val queryCategories = db.collection("categories")
             .whereEqualTo("categoryParentQuestionSetId", questionSet.questionSetId!!)
+        val queryQuestionsAndAnswers = db.collection("questionsAndAnswers")
+            .whereEqualTo("questionAndAnswerParentQuestionSetId", questionSet.questionSetId!!)
 
         val dialog = MaterialDialog(context)
             .noAutoDismiss()
@@ -108,9 +108,14 @@ class AdapterListUserQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>
                                 )
                             }
                         }
-                        categoriesQuery.get().addOnSuccessListener {
+                        queryCategories.get().addOnSuccessListener {
                             it.forEach { category ->
                                 category.reference.delete()
+                            }
+                        }
+                        queryQuestionsAndAnswers.get().addOnSuccessListener {
+                            it.forEach { questionAndAnswer ->
+                                questionAndAnswer.reference.delete()
                             }
                         }
                         queryQuestionSet.delete()
