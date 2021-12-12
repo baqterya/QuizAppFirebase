@@ -33,7 +33,7 @@
         android:inputType="text">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_input_edit_text_layout_add_questiondialog"
+            android:id="@+id/text_input_edit_text_layout_add_question_dialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp" />
