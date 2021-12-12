@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/dialog_add_question_and_answer.xml" value="0.25416666666666665" />
+        <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/dialog_add_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/dialog_add_question_and_answer.xml" value="0.6046931407942239" />
+        <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/dialog_edit_category.xml" value="0.25416666666666665" />
         <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/dialog_edit_question_and_answer.xml" value="0.25416666666666665" />
         <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/fragment_list_questions_and_answers.xml" value="0.25416666666666665" />
         <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/fragment_list_users_categories.xml" value="0.25416666666666665" />
+        <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/fragment_list_users_questions_and_answers.xml" value="0.25416666666666665" />
         <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/recycler_view_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/recycler_view_category_user.xml" value="0.25416666666666665" />
         <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/recycler_view_question_and_answer.xml" value="0.4" />
         <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/recycler_view_question_and_answer_user.xml" value="0.25416666666666665" />
         <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/recycler_view_question_set_all.xml" value="0.25416666666666665" />
