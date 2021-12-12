@@ -38,4 +38,8 @@
     <string name="category_name_dummy">CATEGORY NAME</string>
     <string name="create_new_category">CREATE NEW CATEGORY</string>
     <string name="edit_category">EDIT CATEGORY</string>
+    <string name="question_prompt">Question:</string>
+    <string name="question_text_dummy">QUESTION TEXT</string>
+    <string name="answer_text_dummy">ANSWER TEXT</string>
+    <string name="answer_prompt">Answer:</string>
 </resources>

@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/dialog_add_question_and_answer.xml" value="0.25416666666666665" />
+        <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/dialog_edit_question_and_answer.xml" value="0.25416666666666665" />
+        <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/fragment_list_questions_and_answers.xml" value="0.25416666666666665" />
+        <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/fragment_list_users_categories.xml" value="0.25416666666666665" />
+        <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/recycler_view_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/recycler_view_question_and_answer.xml" value="0.4" />
+        <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/recycler_view_question_and_answer_user.xml" value="0.25416666666666665" />
         <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/recycler_view_question_set_all.xml" value="0.25416666666666665" />
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable-anydpi/ic_star_full.xml" value="0.5703125" />
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.346875" />

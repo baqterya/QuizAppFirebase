@@ -67,6 +67,9 @@
         <argument
             android:name="currentQuestionSetId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_listCategoriesFragment_to_listQuestionsAndAnswersFragment"
+            app:destination="@id/listQuestionsAndAnswersFragment" />
     </fragment>
     <fragment
         android:id="@+id/listUsersCategoriesFragment"
@@ -76,6 +79,39 @@
         <action
             android:id="@+id/action_listUsersCategoriesFragment_to_listUsersQuestionSetsFragment"
             app:destination="@id/listUsersQuestionSetsFragment" />
+        <argument
+            android:name="currentQuestionSetId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_listUsersCategoriesFragment_to_listUsersQuestionsAndAnswersFragment"
+            app:destination="@id/listUsersQuestionsAndAnswersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listQuestionsAndAnswersFragment"
+        android:name="com.example.quizappfirebase.ui.fragment.ListQuestionsAndAnswersFragment"
+        android:label="fragment_list_questions_and_answers"
+        tools:layout="@layout/fragment_list_questions_and_answers" >
+        <action
+            android:id="@+id/action_listQuestionsAndAnswersFragment_to_listCategoriesFragment"
+            app:destination="@id/listCategoriesFragment" />
+        <argument
+            android:name="currentCategoryId"
+            app:argType="string" />
+        <argument
+            android:name="currentQuestionSetId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/listUsersQuestionsAndAnswersFragment"
+        android:name="com.example.quizappfirebase.ui.fragment.ListUsersQuestionsAndAnswersFragment"
+        android:label="fragment_list_users_questions_and_answers"
+        tools:layout="@layout/fragment_list_users_questions_and_answers" >
+        <action
+            android:id="@+id/action_listUsersQuestionsAndAnswersFragment_to_listUsersCategoriesFragment"
+            app:destination="@id/listUsersCategoriesFragment" />
+        <argument
+            android:name="currentCategoryId"
+            app:argType="string" />
         <argument
             android:name="currentQuestionSetId"
             app:argType="string" />
