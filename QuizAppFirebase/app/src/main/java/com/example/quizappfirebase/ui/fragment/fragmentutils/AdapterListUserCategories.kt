@@ -50,12 +50,35 @@ class AdapterListUserCategories(options: FirestoreRecyclerOptions<Category>)
         }
 
         holder.binding.cardViewCategoryRecyclerViewUser.setOnClickListener {
-            val action = ListUsersCategoriesFragmentDirections
-                .actionListUsersCategoriesFragmentToListUsersQuestionsAndAnswersFragment(
-                    model.categoryId!!,
-                    model.categoryParentQuestionSetId!!
-                )
-            holder.itemView.findNavController().navigate(action)
+            val dialog = MaterialDialog(holder.itemView.context)
+                .noAutoDismiss()
+                .customView(R.layout.dialog_action_picker)
+
+            dialog.findViewById<Button>(R.id.button_play).setOnClickListener {
+                db.collection("questionsAndAnswers")
+                    .whereEqualTo("questionAndAnswerParentCategoryId", model.categoryId)
+                    .get()
+                    .addOnSuccessListener {
+                        val arrayQuestions = arrayListOf<String>()
+                        val arrayAnswers = arrayListOf<String>()
+                        for (questionAndAnswer in it) {
+                            arrayQuestions.add(questionAndAnswer["questionAndAnswerQuestionText"] as String)
+                            arrayAnswers.add(questionAndAnswer["questionAndAnswerAnswerText"] as String)
+                        }
+                    }
+                dialog.dismiss()
+            }
+            dialog.findViewById<Button>(R.id.button_browse).setOnClickListener {
+                val action = ListUsersCategoriesFragmentDirections
+                    .actionListUsersCategoriesFragmentToListUsersQuestionsAndAnswersFragment(
+                        model.categoryId!!,
+                        model.categoryParentQuestionSetId!!
+                    )
+                holder.itemView.findNavController().navigate(action)
+
+                dialog.dismiss()
+            }
+            dialog.show()
         }
     }
 

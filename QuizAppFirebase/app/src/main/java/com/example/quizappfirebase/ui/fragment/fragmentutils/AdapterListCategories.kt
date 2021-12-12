@@ -3,18 +3,25 @@ package com.example.quizappfirebase.ui.fragment.fragmentutils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.customview.customView
 import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.Category
 import com.example.quizappfirebase.databinding.RecyclerViewCategoryBinding
+import com.example.quizappfirebase.ui.fragment.ListAllQuestionSetsFragmentDirections
 import com.example.quizappfirebase.ui.fragment.ListCategoriesFragment
 import com.example.quizappfirebase.ui.fragment.ListCategoriesFragmentDirections
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class AdapterListCategories(options: FirestoreRecyclerOptions<Category>)
     : FirestoreRecyclerAdapter<Category, AdapterListCategories.CategoryViewHolder>(options) {
+    val db = Firebase.firestore
 
     class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val binding = RecyclerViewCategoryBinding.bind(itemView)
@@ -34,11 +41,35 @@ class AdapterListCategories(options: FirestoreRecyclerOptions<Category>)
         textViewCategoryName.text = model.categoryName
 
         holder.binding.cardViewCategoryRecyclerView.setOnClickListener {
-            val action = ListCategoriesFragmentDirections
-                .actionListCategoriesFragmentToListQuestionsAndAnswersFragment(
-                    model.categoryId!!, model.categoryParentQuestionSetId!!
-                )
-            holder.itemView.findNavController().navigate(action)
+            val dialog = MaterialDialog(holder.itemView.context)
+                .noAutoDismiss()
+                .customView(R.layout.dialog_action_picker)
+
+            dialog.findViewById<Button>(R.id.button_play).setOnClickListener {
+                db.collection("questionsAndAnswers")
+                    .whereEqualTo("questionAndAnswerParentCategoryId", model.categoryId)
+                    .get()
+                    .addOnSuccessListener {
+                        val arrayQuestions = arrayListOf<String>()
+                        val arrayAnswers = arrayListOf<String>()
+                        for (questionAndAnswer in it) {
+                            arrayQuestions.add(questionAndAnswer["questionAndAnswerQuestionText"] as String)
+                            arrayAnswers.add(questionAndAnswer["questionAndAnswerAnswerText"] as String)
+                        }
+                    }
+                dialog.dismiss()
+            }
+            dialog.findViewById<Button>(R.id.button_browse).setOnClickListener {
+                val action = ListCategoriesFragmentDirections
+                    .actionListCategoriesFragmentToListQuestionsAndAnswersFragment(
+                        model.categoryId!!, model.categoryParentQuestionSetId!!
+                    )
+                holder.itemView.findNavController().navigate(action)
+
+                dialog.dismiss()
+            }
+            dialog.show()
+
         }
     }
 }

@@ -1,13 +1,13 @@
 package com.example.quizappfirebase.ui.fragment.fragmentutils
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.Button
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.customview.customView
 import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.QuestionSet
 import com.example.quizappfirebase.databinding.RecyclerViewQuestionSetAllBinding
@@ -56,9 +56,31 @@ class AdapterListAllQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>)
                 imageViewQuestionSetMakeFav.setImageResource(R.drawable.ic_star_full_white)
 
             holder.binding.cardViewQuestionSetAllRecyclerView.setOnClickListener {
-                val action = ListAllQuestionSetsFragmentDirections
-                    .actionListAllQuestionSetsFragmentToListCategoriesFragment(model.questionSetId!!)
-                holder.itemView.findNavController().navigate(action)
+                val dialog = MaterialDialog(holder.itemView.context)
+                    .noAutoDismiss()
+                    .customView(R.layout.dialog_action_picker)
+
+                dialog.findViewById<Button>(R.id.button_play).setOnClickListener {
+                    db.collection("questionsAndAnswers")
+                        .whereEqualTo("questionAndAnswerParentQuestionSetId", model.questionSetId)
+                        .get()
+                        .addOnSuccessListener {
+                            val arrayQuestions = arrayListOf<String>()
+                            val arrayAnswers = arrayListOf<String>()
+                            for (questionAndAnswer in it) {
+                                arrayQuestions.add(questionAndAnswer["questionAndAnswerQuestionText"] as String)
+                                arrayAnswers.add(questionAndAnswer["questionAndAnswerAnswerText"] as String)
+                            }
+                        }
+                    dialog.dismiss()
+                }
+                dialog.findViewById<Button>(R.id.button_browse).setOnClickListener {
+                    val action = ListAllQuestionSetsFragmentDirections
+                        .actionListAllQuestionSetsFragmentToListCategoriesFragment(model.questionSetId!!)
+                    holder.itemView.findNavController().navigate(action)
+                    dialog.dismiss()
+                }
+                dialog.show()
             }
 
             imageViewQuestionSetMakeFav.setOnClickListener {

@@ -46,4 +46,6 @@
     <string name="question_hint">QUESTION</string>
     <string name="answer_hint">ANSWER</string>
     <string name="edit_question_and_answer">EDIT QUESTION AND ANSWER</string>
+    <string name="browse">BROWSE</string>
+    <string name="play">PLAY</string>
 </resources>
