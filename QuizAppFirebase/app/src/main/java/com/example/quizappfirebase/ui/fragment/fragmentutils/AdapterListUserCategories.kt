@@ -9,12 +9,14 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatImageButton
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.Category
 import com.example.quizappfirebase.databinding.RecyclerViewCategoryUserBinding
+import com.example.quizappfirebase.ui.fragment.ListUsersCategoriesFragmentDirections
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.ktx.auth
@@ -45,6 +47,15 @@ class AdapterListUserCategories(options: FirestoreRecyclerOptions<Category>)
 
         holder.binding.imageViewCategoryEditUser.setOnClickListener {
             showEditCategoryDialog(holder, model)
+        }
+
+        holder.binding.cardViewCategoryRecyclerViewUser.setOnClickListener {
+            val action = ListUsersCategoriesFragmentDirections
+                .actionListUsersCategoriesFragmentToListUsersQuestionsAndAnswersFragment(
+                    model.categoryId!!,
+                    model.categoryParentQuestionSetId!!
+                )
+            holder.itemView.findNavController().navigate(action)
         }
     }
 
