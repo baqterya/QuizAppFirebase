@@ -3,7 +3,6 @@ package com.example.quizappfirebase.ui.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.User
 import com.example.quizappfirebase.databinding.ActivityLoginBinding
 import com.google.firebase.auth.ktx.auth
