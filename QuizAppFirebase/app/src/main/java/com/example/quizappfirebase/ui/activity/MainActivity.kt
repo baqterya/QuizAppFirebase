@@ -67,7 +67,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu_settings -> {}
+            R.id.menu_settings -> {
+                findNavController(R.id.main_fragment_container).navigate(R.id.settingsFragment)
+            }
             R.id.menu_logout -> userLogout()
         }
         return super.onOptionsItemSelected(item)

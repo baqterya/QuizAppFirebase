@@ -48,4 +48,10 @@
     <string name="edit_question_and_answer">EDIT QUESTION AND ANSWER</string>
     <string name="browse">BROWSE</string>
     <string name="play">PLAY</string>
+    <string name="change_username">CHANGE USERNAME</string>
+    <string name="change_username_hint">change username</string>
+    <string name="change">CHANGE</string>
+    <string name="set_alarm">SET TRAINING ALARM</string>
+    <string name="set_time">set time</string>
+    <string name="disable_alarm">disable</string>
 </resources>
