@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizAppFirebase">
         <activity
-            android:name=".ui.activity.QuizActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
