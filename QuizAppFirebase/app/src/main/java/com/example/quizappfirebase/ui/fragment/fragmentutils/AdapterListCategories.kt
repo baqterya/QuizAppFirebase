@@ -10,6 +10,7 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.Category
+import com.example.quizappfirebase.data.QuestionAndAnswer
 import com.example.quizappfirebase.databinding.RecyclerViewCategoryBinding
 import com.example.quizappfirebase.ui.fragment.ListAllQuestionSetsFragmentDirections
 import com.example.quizappfirebase.ui.fragment.ListCategoriesFragment
@@ -50,15 +51,15 @@ class AdapterListCategories(options: FirestoreRecyclerOptions<Category>)
                     .whereEqualTo("questionAndAnswerParentCategoryId", model.categoryId)
                     .get()
                     .addOnSuccessListener {
-                        val arrayQuestions = arrayListOf<String>()
-                        val arrayAnswers = arrayListOf<String>()
+                        val arrayQuestionsAndAnswers = arrayListOf<QuestionAndAnswer>()
                         for (questionAndAnswer in it) {
-                            arrayQuestions.add(questionAndAnswer["questionAndAnswerQuestionText"] as String)
-                            arrayAnswers.add(questionAndAnswer["questionAndAnswerAnswerText"] as String)
+                            arrayQuestionsAndAnswers.add(
+                                    questionAndAnswer.toObject(QuestionAndAnswer::class.java)
+                            )
                         }
                         val action = ListCategoriesFragmentDirections
                                 .actionListCategoriesFragmentToQuizModePickerFragment(
-                                        arrayQuestions.toTypedArray(), arrayAnswers.toTypedArray()
+                                        arrayQuestionsAndAnswers.toTypedArray()
                                 )
                         holder.itemView.findNavController().navigate(action)
                     }

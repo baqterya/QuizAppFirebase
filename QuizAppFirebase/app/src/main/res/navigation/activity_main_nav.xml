@@ -145,10 +145,7 @@
             android:id="@+id/action_quizModePickerFragment_to_listAllQuestionSetsFragment"
             app:destination="@id/listAllQuestionSetsFragment" />
         <argument
-            android:name="arrayQuestions"
-            app:argType="string[]" />
-        <argument
-            android:name="arrayAnswers"
-            app:argType="string[]" />
+            android:name="arrayQuestionsAndAnswers"
+            app:argType="com.example.quizappfirebase.data.QuestionAndAnswer[]" />
     </fragment>
 </navigation>

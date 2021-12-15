@@ -58,4 +58,5 @@
     <string name="picker_standard">STANDARD</string>
     <string name="picker_time">TIME CHALLANGE</string>
     <string name="picker_writing">WRITING_CHALLANGE</string>
+    <string name="too_few_questions">TOO FEW QUESTIONS\n IN THIS SET/CATEGORY\n\n ADD AT LEAST 5 QUESTIONS</string>
 </resources>

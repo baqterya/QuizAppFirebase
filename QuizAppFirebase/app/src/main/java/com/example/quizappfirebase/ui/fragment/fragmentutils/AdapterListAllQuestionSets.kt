@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.example.quizappfirebase.R
+import com.example.quizappfirebase.data.QuestionAndAnswer
 import com.example.quizappfirebase.data.QuestionSet
 import com.example.quizappfirebase.databinding.RecyclerViewQuestionSetAllBinding
 import com.example.quizappfirebase.ui.fragment.ListAllQuestionSetsFragmentDirections
@@ -17,6 +18,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class AdapterListAllQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>)
@@ -65,15 +67,15 @@ class AdapterListAllQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>)
                         .whereEqualTo("questionAndAnswerParentQuestionSetId", model.questionSetId)
                         .get()
                         .addOnSuccessListener {
-                            val arrayQuestions = arrayListOf<String>()
-                            val arrayAnswers = arrayListOf<String>()
+                            val arrayQuestionsAndAnswers = arrayListOf<QuestionAndAnswer>()
                             for (questionAndAnswer in it) {
-                                arrayQuestions.add(questionAndAnswer["questionAndAnswerQuestionText"] as String)
-                                arrayAnswers.add(questionAndAnswer["questionAndAnswerAnswerText"] as String)
+                                arrayQuestionsAndAnswers.add(
+                                        questionAndAnswer.toObject(QuestionAndAnswer::class.java)
+                                )
                             }
                             val action = ListAllQuestionSetsFragmentDirections
                                 .actionListAllQuestionSetsFragmentToQuizModePickerFragment(
-                                        arrayQuestions.toTypedArray(), arrayAnswers.toTypedArray()
+                                        arrayQuestionsAndAnswers.toTypedArray()
                                 )
                             holder.itemView.findNavController().navigate(action)
                         }
