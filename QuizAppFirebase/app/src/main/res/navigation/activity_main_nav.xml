@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_listAllQuestionSetsFragment_to_listCategoriesFragment"
             app:destination="@id/listCategoriesFragment" />
+        <action
+            android:id="@+id/action_listAllQuestionSetsFragment_to_quizModePickerFragment"
+            app:destination="@id/quizModePickerFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFavouriteQuestionSetsFragment"
@@ -37,6 +40,9 @@
         <action
             android:id="@+id/action_listFavouriteQuestionSetsFragment_to_listCategoriesFragment"
             app:destination="@id/listCategoriesFragment" />
+        <action
+            android:id="@+id/action_listFavouriteQuestionSetsFragment_to_quizModePickerFragment"
+            app:destination="@id/quizModePickerFragment" />
     </fragment>
     <fragment
         android:id="@+id/listUsersQuestionSetsFragment"
@@ -52,6 +58,9 @@
         <action
             android:id="@+id/action_listUsersQuestionSetsFragment_to_listUsersCategoriesFragment"
             app:destination="@id/listUsersCategoriesFragment" />
+        <action
+            android:id="@+id/action_listUsersQuestionSetsFragment_to_quizModePickerFragment"
+            app:destination="@id/quizModePickerFragment" />
     </fragment>
     <fragment
         android:id="@+id/listCategoriesFragment"
@@ -70,6 +79,9 @@
         <action
             android:id="@+id/action_listCategoriesFragment_to_listQuestionsAndAnswersFragment"
             app:destination="@id/listQuestionsAndAnswersFragment" />
+        <action
+            android:id="@+id/action_listCategoriesFragment_to_quizModePickerFragment"
+            app:destination="@id/quizModePickerFragment" />
     </fragment>
     <fragment
         android:id="@+id/listUsersCategoriesFragment"
@@ -85,6 +97,9 @@
         <action
             android:id="@+id/action_listUsersCategoriesFragment_to_listUsersQuestionsAndAnswersFragment"
             app:destination="@id/listUsersQuestionsAndAnswersFragment" />
+        <action
+            android:id="@+id/action_listUsersCategoriesFragment_to_quizModePickerFragment"
+            app:destination="@id/quizModePickerFragment" />
     </fragment>
     <fragment
         android:id="@+id/listQuestionsAndAnswersFragment"
@@ -121,4 +136,19 @@
         android:name="com.example.quizappfirebase.ui.fragment.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/quizModePickerFragment"
+        android:name="com.example.quizappfirebase.ui.fragment.QuizModePickerFragment"
+        android:label="fragment_quiz_mode_picker"
+        tools:layout="@layout/fragment_quiz_mode_picker" >
+        <action
+            android:id="@+id/action_quizModePickerFragment_to_listAllQuestionSetsFragment"
+            app:destination="@id/listAllQuestionSetsFragment" />
+        <argument
+            android:name="arrayQuestions"
+            app:argType="string[]" />
+        <argument
+            android:name="arrayAnswers"
+            app:argType="string[]" />
+    </fragment>
 </navigation>

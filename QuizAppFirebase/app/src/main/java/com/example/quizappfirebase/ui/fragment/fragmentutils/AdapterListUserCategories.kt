@@ -65,6 +65,11 @@ class AdapterListUserCategories(options: FirestoreRecyclerOptions<Category>)
                             arrayQuestions.add(questionAndAnswer["questionAndAnswerQuestionText"] as String)
                             arrayAnswers.add(questionAndAnswer["questionAndAnswerAnswerText"] as String)
                         }
+                        val action = ListUsersCategoriesFragmentDirections
+                                .actionListUsersCategoriesFragmentToQuizModePickerFragment(
+                                        arrayQuestions.toTypedArray(), arrayAnswers.toTypedArray()
+                                )
+                        holder.itemView.findNavController().navigate(action)
                     }
                 dialog.dismiss()
             }
