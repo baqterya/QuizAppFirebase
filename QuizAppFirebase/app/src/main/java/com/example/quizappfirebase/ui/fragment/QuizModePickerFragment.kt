@@ -2,9 +2,16 @@ package com.example.quizappfirebase.ui.fragment
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Button
+import android.widget.NumberPicker
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.customview.customView
 import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.QuestionAndAnswer
 import com.example.quizappfirebase.databinding.FragmentQuizModePickerBinding
@@ -16,16 +23,12 @@ class QuizModePickerFragment : Fragment() {
         private val binding get() = _binding!!
 
     private val args by navArgs<QuizModePickerFragmentArgs>()
-    private lateinit var arrayQuestionsAndAnswers: ArrayList<QuestionAndAnswer>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-
         _binding = FragmentQuizModePickerBinding.inflate(inflater, container, false)
-        arrayQuestionsAndAnswers = args.arrayQuestionsAndAnswers.toCollection(ArrayList())
         checkQuestionAmount()
         return binding.root
     }
@@ -33,11 +36,44 @@ class QuizModePickerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         menuVisibility(false)
+
+        binding.buttonStartSimpleQuizPicker.setOnClickListener {
+            showQuestionAmountPickerDialog("simple")
+        }
+
+        binding.buttonStartTimeQuizPicker.setOnClickListener {
+
+        }
+
+        binding.buttonStartTextQuizPicker.setOnClickListener {
+            showQuestionAmountPickerDialog("text")
+        }
     }
 
     override fun onPause() {
         super.onPause()
         menuVisibility(true)
+    }
+
+    private fun showQuestionAmountPickerDialog(mode: String) {
+        val dialog = MaterialDialog(requireContext())
+            .noAutoDismiss()
+            .customView(R.layout.dialog_quiz_question_amount)
+
+        val numberPicker = dialog.findViewById<NumberPicker>(R.id.dialogSimpleQuizQuestionsNumberPicker)
+        numberPicker.minValue = 6
+        numberPicker.maxValue = 20
+        var questionAmount = 6
+
+        numberPicker.setOnValueChangedListener { _, _, newVal ->
+            questionAmount = newVal
+        }
+
+        dialog.findViewById<Button>(R.id.dialogSimpleQuizQuestionsButton).setOnClickListener {
+            // findNavController().navigate(action)
+            dialog.dismiss()
+        }
+        dialog.show()
     }
 
     private fun menuVisibility(switch: Boolean) {
@@ -57,7 +93,7 @@ class QuizModePickerFragment : Fragment() {
     }
 
     private fun checkQuestionAmount() {
-        if (arrayQuestionsAndAnswers.size < 5) {
+        if (args.arrayQuestionsAndAnswers.size < 5) {
             binding.textView1QuizPicker.visibility = View.INVISIBLE
             binding.buttonStartSimpleQuizPicker.visibility = View.INVISIBLE
             binding.buttonStartTextQuizPicker.visibility = View.INVISIBLE

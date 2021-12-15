@@ -56,7 +56,9 @@
     <string name="disable_alarm">disable</string>
     <string name="pick_a_quiz_mode">PICK A QUIZ MODE</string>
     <string name="picker_standard">STANDARD</string>
-    <string name="picker_time">TIME CHALLANGE</string>
-    <string name="picker_writing">WRITING_CHALLANGE</string>
+    <string name="picker_time">TIME CHALLENGE</string>
+    <string name="picker_writing">WRITING CHALLENGE</string>
     <string name="too_few_questions">TOO FEW QUESTIONS\n IN THIS SET/CATEGORY\n\n ADD AT LEAST 5 QUESTIONS</string>
+    <string name="prompt_question_amount">How many questions \n would you like to test?</string>
+    <string name="start">start</string>
 </resources>
