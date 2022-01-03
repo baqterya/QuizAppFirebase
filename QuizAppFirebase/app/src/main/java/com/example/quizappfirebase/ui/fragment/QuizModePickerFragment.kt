@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Button
 import android.widget.NumberPicker
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
@@ -36,6 +37,8 @@ class QuizModePickerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         menuVisibility(false)
+
+        (activity as AppCompatActivity).supportActionBar?.title = "Quiz Mode Picker"
 
         binding.buttonStartSimpleQuizPicker.setOnClickListener {
             showQuestionAmountPickerDialog("simple")

@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.afollestad.materialdialogs.MaterialDialog
@@ -40,6 +41,9 @@ class ListUsersCategoriesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as AppCompatActivity).supportActionBar?.title = args.currentQuestionSetName
+
         val query = db.collection("categories")
             .whereEqualTo("categoryParentQuestionSetId", args.currentQuestionSetId)
             .orderBy("categoryName")

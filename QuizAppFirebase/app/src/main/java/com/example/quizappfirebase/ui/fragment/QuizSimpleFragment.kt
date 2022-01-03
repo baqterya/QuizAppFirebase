@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.afollestad.materialdialogs.MaterialDialog
@@ -41,6 +42,9 @@ class QuizSimpleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as AppCompatActivity).supportActionBar?.title = "Simple Quiz"
+
         listQuestionsAndAnswers = args.arrayQuestionsAndAnswers.toCollection(ArrayList())
 
         listQuestionsAndAnswers.forEach {

@@ -19,6 +19,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import android.text.format.DateFormat
+import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
 class SettingsFragment : Fragment(), TimePickerDialog.OnTimeSetListener {
@@ -41,6 +42,8 @@ class SettingsFragment : Fragment(), TimePickerDialog.OnTimeSetListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as AppCompatActivity).supportActionBar?.title = "Settings"
 
         db.collection("users").document(currentUser.uid)
             .get()

@@ -82,6 +82,8 @@
         <action
             android:id="@+id/action_listCategoriesFragment_to_quizModePickerFragment"
             app:destination="@id/quizModePickerFragment" />
+        <argument android:name="currentQuestionSetName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/listUsersCategoriesFragment"
@@ -100,6 +102,9 @@
         <action
             android:id="@+id/action_listUsersCategoriesFragment_to_quizModePickerFragment"
             app:destination="@id/quizModePickerFragment" />
+        <argument
+            android:name="currentQuestionSetName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/listQuestionsAndAnswersFragment"
@@ -115,6 +120,9 @@
         <argument
             android:name="currentQuestionSetId"
             app:argType="string" />
+        <argument
+            android:name="currentCategoryName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/listUsersQuestionsAndAnswersFragment"
@@ -129,6 +137,9 @@
             app:argType="string" />
         <argument
             android:name="currentQuestionSetId"
+            app:argType="string" />
+        <argument
+            android:name="currentCategoryName"
             app:argType="string" />
     </fragment>
     <fragment

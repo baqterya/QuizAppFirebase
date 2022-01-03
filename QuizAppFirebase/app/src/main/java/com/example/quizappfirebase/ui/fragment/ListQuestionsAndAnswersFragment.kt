@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizappfirebase.data.QuestionAndAnswer
@@ -33,6 +34,9 @@ class ListQuestionsAndAnswersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as AppCompatActivity).supportActionBar?.title = args.currentCategoryName
+
         val query = db.collection("questionsAndAnswers")
             .whereEqualTo("questionAndAnswerParentCategoryId", args.currentCategoryId)
             .orderBy("questionAndAnswerQuestionText")

@@ -68,7 +68,9 @@ class AdapterListCategories(options: FirestoreRecyclerOptions<Category>)
             dialog.findViewById<Button>(R.id.button_browse).setOnClickListener {
                 val action = ListCategoriesFragmentDirections
                     .actionListCategoriesFragmentToListQuestionsAndAnswersFragment(
-                        model.categoryId!!, model.categoryParentQuestionSetId!!
+                        model.categoryId!!,
+                        model.categoryParentQuestionSetId!!,
+                        model.categoryName!!
                     )
                 holder.itemView.findNavController().navigate(action)
 

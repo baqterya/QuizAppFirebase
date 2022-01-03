@@ -2,15 +2,14 @@ package com.example.quizappfirebase.ui.fragment
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
@@ -20,12 +19,8 @@ import com.example.quizappfirebase.data.User
 import com.example.quizappfirebase.databinding.FragmentListUsersQuestionSetsBinding
 import com.example.quizappfirebase.ui.fragment.fragmentutils.AdapterListUserQuestionSets
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.switchmaterial.SwitchMaterial
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class ListUsersQuestionSetsFragment : Fragment() {
@@ -48,6 +43,8 @@ class ListUsersQuestionSetsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val userId = currentUser.userId!!
+
+        (activity as AppCompatActivity).supportActionBar?.title = "My Question Sets"
 
         val query = db.collection("questionSets")
             .whereEqualTo("questionSetOwnerId", userId)

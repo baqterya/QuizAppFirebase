@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.afollestad.materialdialogs.MaterialDialog
@@ -39,6 +40,9 @@ class ListUsersQuestionsAndAnswersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as AppCompatActivity).supportActionBar?.title = args.currentCategoryName
+
         val query = db.collection("questionsAndAnswers")
             .whereEqualTo("questionAndAnswerParentCategoryId", args.currentCategoryId)
             .orderBy("questionAndAnswerQuestionText")

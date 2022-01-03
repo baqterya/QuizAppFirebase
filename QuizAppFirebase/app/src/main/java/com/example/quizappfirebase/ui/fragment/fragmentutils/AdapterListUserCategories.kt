@@ -78,7 +78,8 @@ class AdapterListUserCategories(options: FirestoreRecyclerOptions<Category>)
                 val action = ListUsersCategoriesFragmentDirections
                     .actionListUsersCategoriesFragmentToListUsersQuestionsAndAnswersFragment(
                         model.categoryId!!,
-                        model.categoryParentQuestionSetId!!
+                        model.categoryParentQuestionSetId!!,
+                        model.categoryName!!
                     )
                 holder.itemView.findNavController().navigate(action)
 

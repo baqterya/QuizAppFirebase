@@ -83,7 +83,7 @@ class AdapterListAllQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>)
                 }
                 dialog.findViewById<Button>(R.id.button_browse).setOnClickListener {
                     val action = ListAllQuestionSetsFragmentDirections
-                        .actionListAllQuestionSetsFragmentToListCategoriesFragment(model.questionSetId!!)
+                        .actionListAllQuestionSetsFragmentToListCategoriesFragment(model.questionSetId!!, model.questionSetName!!)
                     holder.itemView.findNavController().navigate(action)
                     dialog.dismiss()
                 }

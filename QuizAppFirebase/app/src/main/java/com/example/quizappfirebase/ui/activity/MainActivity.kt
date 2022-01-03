@@ -13,6 +13,7 @@ import androidx.navigation.findNavController
 import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.User
 import com.example.quizappfirebase.databinding.ActivityMainBinding
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -20,7 +21,7 @@ import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private var toolbar: Toolbar? = null
+    private var toolbar: MaterialToolbar? = null
     private val db = Firebase.firestore
     private val currentUser = Firebase.auth.currentUser
 
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         toolbar = binding.topToolbar
+        toolbar!!.title = "All Question Sets"
         setSupportActionBar(toolbar)
 
         binding.bottomNavigationBar.setOnItemSelectedListener {
