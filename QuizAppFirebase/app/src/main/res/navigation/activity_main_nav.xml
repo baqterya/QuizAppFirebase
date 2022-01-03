@@ -171,6 +171,9 @@
         <argument
             android:name="questionAmount"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_quizSimpleFragment_to_listAllQuestionSetsFragment"
+            app:destination="@id/listAllQuestionSetsFragment" />
     </fragment>
     <fragment
         android:id="@+id/quizTextFragment"
@@ -183,6 +186,9 @@
         <argument
             android:name="questionAmount"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_quizTextFragment_to_listAllQuestionSetsFragment"
+            app:destination="@id/listAllQuestionSetsFragment" />
     </fragment>
     <fragment
         android:id="@+id/quizTimeFragment"
@@ -192,5 +198,8 @@
         <argument
             android:name="arrayQuestionsAndAnswers"
             app:argType="com.example.quizappfirebase.data.QuestionAndAnswer[]" />
+        <action
+            android:id="@+id/action_quizTimeFragment_to_listAllQuestionSetsFragment"
+            app:destination="@id/listAllQuestionSetsFragment" />
     </fragment>
 </navigation>
