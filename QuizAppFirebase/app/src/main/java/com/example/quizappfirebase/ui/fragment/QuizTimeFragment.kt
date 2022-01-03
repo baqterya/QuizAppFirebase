@@ -100,7 +100,7 @@ class QuizTimeFragment : Fragment() {
         if (buttonText == currentQuestion.questionAndAnswerAnswerText) {
             pointCounter.text = (pointCounter.text.toString().toInt() + 1).toString()
             timer.cancel()
-            timer = MyTimer(timeLeft + 500, 100)
+            timer = MyTimer(timeLeft + 800, 100)
             timer.start()
         }
         setupQuestion()
