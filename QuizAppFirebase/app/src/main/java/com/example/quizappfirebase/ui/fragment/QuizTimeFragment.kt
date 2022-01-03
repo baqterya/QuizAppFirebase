@@ -78,9 +78,7 @@ class QuizTimeFragment : Fragment() {
         }
 
         val tempArray = arrayListOf<String>()
-        listAnswers.forEach {
-            tempArray.add(it)
-        }
+        tempArray.addAll(listAnswers)
 
         currentQuestion = listQuestionsAndAnswers.random()
         binding.textViewQuizTimeQuestion.text = currentQuestion.questionAndAnswerQuestionText
