@@ -61,4 +61,7 @@
     <string name="too_few_questions">TOO FEW QUESTIONS\n IN THIS SET/CATEGORY\n\n ADD AT LEAST 5 QUESTIONS</string>
     <string name="prompt_question_amount">How many questions \n would you like to test?</string>
     <string name="start">start</string>
+    <string name="point_dummy">0</string>
+    <string name="question_dummy">QUESTION</string>
+    <string name="answer_dummy">ANSWER</string>
 </resources>

@@ -36,6 +36,8 @@
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/fragment_list_users_question_sets.xml" value="0.1" />
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/fragment_login.xml" value="0.483695652173913" />
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/fragment_quiz_mode_picker.xml" value="0.3307291666666667" />
+        <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/fragment_quiz_simple.xml" value="0.5541666666666667" />
+        <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/fragment_quiz_time.xml" value="0.5541666666666667" />
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/fragment_register.xml" value="0.3307291666666667" />
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/fragment_settings.xml" value="0.33" />
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/recycler_view_category.xml" value="0.33" />

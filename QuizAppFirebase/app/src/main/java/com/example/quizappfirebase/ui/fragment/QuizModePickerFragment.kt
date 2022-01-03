@@ -42,7 +42,8 @@ class QuizModePickerFragment : Fragment() {
         }
 
         binding.buttonStartTimeQuizPicker.setOnClickListener {
-
+            val action = QuizModePickerFragmentDirections.actionQuizModePickerFragmentToQuizTimeFragment(args.arrayQuestionsAndAnswers)
+            findNavController().navigate(action)
         }
 
         binding.buttonStartTextQuizPicker.setOnClickListener {
@@ -70,7 +71,10 @@ class QuizModePickerFragment : Fragment() {
         }
 
         dialog.findViewById<Button>(R.id.dialogSimpleQuizQuestionsButton).setOnClickListener {
-            // findNavController().navigate(action)
+            val action = if (mode == "simple") QuizModePickerFragmentDirections.actionQuizModePickerFragmentToQuizSimpleFragment(args.arrayQuestionsAndAnswers, questionAmount)
+                else QuizModePickerFragmentDirections.actionQuizModePickerFragmentToQuizTextFragment(args.arrayQuestionsAndAnswers, questionAmount)
+
+            findNavController().navigate(action)
             dialog.dismiss()
         }
         dialog.show()

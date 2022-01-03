@@ -149,49 +149,46 @@
             app:argType="com.example.quizappfirebase.data.QuestionAndAnswer[]" />
         <action
             android:id="@+id/action_quizModePickerFragment_to_quizSimpleFragment"
-            app:destination="@id/quizSimpleFragment" />
+            app:destination="@id/quizSimpleFragment"
+            app:popUpTo="@id/listAllQuestionSetsFragment" />
         <action
             android:id="@+id/action_quizModePickerFragment_to_quizTextFragment"
-            app:destination="@id/quizTextFragment" />
+            app:destination="@id/quizTextFragment"
+            app:popUpTo="@id/listAllQuestionSetsFragment" />
         <action
             android:id="@+id/action_quizModePickerFragment_to_quizTimeFragment"
-            app:destination="@id/quizTimeFragment" />
+            app:destination="@id/quizTimeFragment"
+            app:popUpTo="@id/listAllQuestionSetsFragment" />
     </fragment>
     <fragment
         android:id="@+id/quizSimpleFragment"
         android:name="com.example.quizappfirebase.ui.fragment.QuizSimpleFragment"
         android:label="fragment_quiz_simple"
         tools:layout="@layout/fragment_quiz_simple" >
-        <action
-            android:id="@+id/action_quizSimpleFragment_to_quizModePickerFragment"
-            app:destination="@id/quizModePickerFragment"
-            app:popUpTo="@id/listAllQuestionSetsFragment" />
         <argument
             android:name="arrayQuestionsAndAnswers"
             app:argType="com.example.quizappfirebase.data.QuestionAndAnswer[]" />
+        <argument
+            android:name="questionAmount"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/quizTextFragment"
         android:name="com.example.quizappfirebase.ui.fragment.QuizTextFragment"
         android:label="fragment_quiz_text"
         tools:layout="@layout/fragment_quiz_text" >
-        <action
-            android:id="@+id/action_quizTextFragment_to_quizModePickerFragment"
-            app:destination="@id/quizModePickerFragment"
-            app:popUpTo="@id/listAllQuestionSetsFragment" />
         <argument
             android:name="arrayQuestionsAndAnswers"
             app:argType="com.example.quizappfirebase.data.QuestionAndAnswer[]" />
+        <argument
+            android:name="questionAmount"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/quizTimeFragment"
         android:name="com.example.quizappfirebase.ui.fragment.QuizTimeFragment"
         android:label="fragment_quiz_time"
         tools:layout="@layout/fragment_quiz_time" >
-        <action
-            android:id="@+id/action_quizTimeFragment_to_quizModePickerFragment"
-            app:destination="@id/quizModePickerFragment"
-            app:popUpTo="@id/listAllQuestionSetsFragment" />
         <argument
             android:name="arrayQuestionsAndAnswers"
             app:argType="com.example.quizappfirebase.data.QuestionAndAnswer[]" />
