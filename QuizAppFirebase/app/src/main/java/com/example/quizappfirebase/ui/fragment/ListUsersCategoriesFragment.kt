@@ -18,6 +18,7 @@ import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.Category
 import com.example.quizappfirebase.databinding.FragmentListUsersCategoriesBinding
 import com.example.quizappfirebase.ui.fragment.fragmentutils.AdapterListUserCategories
+import com.example.quizappfirebase.ui.fragment.fragmentutils.WrapperLinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -54,7 +55,7 @@ class ListUsersCategoriesFragment : Fragment() {
 
         val adapter = AdapterListUserCategories(options)
         binding.listCategoryRecyclerViewUser.adapter = adapter
-        binding.listCategoryRecyclerViewUser.layoutManager = LinearLayoutManager(requireContext())
+        binding.listCategoryRecyclerViewUser.layoutManager = WrapperLinearLayoutManager(requireContext())
 
         binding.fabUsersCategoryRecyclerView.setOnClickListener {
             showAddCategoryDialog()

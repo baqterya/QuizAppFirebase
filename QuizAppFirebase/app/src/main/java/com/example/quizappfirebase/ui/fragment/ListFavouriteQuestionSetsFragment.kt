@@ -11,6 +11,7 @@ import com.example.quizappfirebase.data.QuestionSet
 import com.example.quizappfirebase.data.User
 import com.example.quizappfirebase.databinding.FragmentListFavouriteQuestionSetsBinding
 import com.example.quizappfirebase.ui.fragment.fragmentutils.AdapterListFavQuestionSets
+import com.example.quizappfirebase.ui.fragment.fragmentutils.WrapperLinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
@@ -51,6 +52,6 @@ class ListFavouriteQuestionSetsFragment : Fragment() {
 
         val adapter = AdapterListFavQuestionSets(options)
         binding.listFavouriteQuestionRecyclerView.adapter = adapter
-        binding.listFavouriteQuestionRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.listFavouriteQuestionRecyclerView.layoutManager = WrapperLinearLayoutManager(requireContext())
     }
 }

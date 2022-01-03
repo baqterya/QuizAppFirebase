@@ -18,6 +18,7 @@ import com.example.quizappfirebase.data.QuestionSet
 import com.example.quizappfirebase.data.User
 import com.example.quizappfirebase.databinding.FragmentListUsersQuestionSetsBinding
 import com.example.quizappfirebase.ui.fragment.fragmentutils.AdapterListUserQuestionSets
+import com.example.quizappfirebase.ui.fragment.fragmentutils.WrapperLinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.switchmaterial.SwitchMaterial
 import com.google.firebase.firestore.ktx.firestore
@@ -58,7 +59,7 @@ class ListUsersQuestionSetsFragment : Fragment() {
 
         val adapter = AdapterListUserQuestionSets(options)
         binding.listUsersQuestionSetsRecyclerView.adapter = adapter
-        binding.listUsersQuestionSetsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.listUsersQuestionSetsRecyclerView.layoutManager = WrapperLinearLayoutManager(requireContext())
 
         binding.fabUsersQuestionSetsRecyclerView.setOnClickListener {
             showAddQuestionSetDialog()

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizappfirebase.data.QuestionSet
 import com.example.quizappfirebase.databinding.FragmentListAllQuestionSetsBinding
 import com.example.quizappfirebase.ui.fragment.fragmentutils.AdapterListAllQuestionSets
+import com.example.quizappfirebase.ui.fragment.fragmentutils.WrapperLinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
@@ -46,7 +47,7 @@ class ListAllQuestionSetsFragment : Fragment() {
 
         val adapter = AdapterListAllQuestionSets(options)
         binding.listAllQuestionRecyclerView.adapter = adapter
-        binding.listAllQuestionRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.listAllQuestionRecyclerView.layoutManager = WrapperLinearLayoutManager(requireContext())
 
     }
 }
