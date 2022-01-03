@@ -3,7 +3,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="15dp">
+    android:padding="15dp"
+    android:background="@color/new_primary_variant">
 
     <TextView
         android:id="@+id/dialogFinishQuizTextView1"
