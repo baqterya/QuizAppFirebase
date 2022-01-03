@@ -12,12 +12,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/top_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/top_menu"
-            />
+            app:menu="@menu/top_menu" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
