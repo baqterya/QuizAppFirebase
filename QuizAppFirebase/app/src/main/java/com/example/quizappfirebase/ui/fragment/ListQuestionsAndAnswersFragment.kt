@@ -1,16 +1,15 @@
 package com.example.quizappfirebase.ui.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizappfirebase.data.QuestionAndAnswer
 import com.example.quizappfirebase.databinding.FragmentListQuestionsAndAnswersBinding
-import com.example.quizappfirebase.ui.fragment.fragmentutils.AdapterListCategories
 import com.example.quizappfirebase.ui.fragment.fragmentutils.AdapterListQuestionsAndAnswers
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.ktx.firestore

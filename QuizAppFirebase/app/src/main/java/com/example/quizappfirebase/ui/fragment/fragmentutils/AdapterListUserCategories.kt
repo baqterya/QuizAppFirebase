@@ -20,7 +20,6 @@ import com.example.quizappfirebase.databinding.RecyclerViewCategoryUserBinding
 import com.example.quizappfirebase.ui.fragment.ListUsersCategoriesFragmentDirections
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 

@@ -12,8 +12,6 @@ import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.Category
 import com.example.quizappfirebase.data.QuestionAndAnswer
 import com.example.quizappfirebase.databinding.RecyclerViewCategoryBinding
-import com.example.quizappfirebase.ui.fragment.ListAllQuestionSetsFragmentDirections
-import com.example.quizappfirebase.ui.fragment.ListCategoriesFragment
 import com.example.quizappfirebase.ui.fragment.ListCategoriesFragmentDirections
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions

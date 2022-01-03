@@ -3,14 +3,12 @@ package com.example.quizappfirebase.ui.fragment
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.User
 import com.example.quizappfirebase.databinding.FragmentRegisterBinding
 import com.example.quizappfirebase.ui.activity.MainActivity

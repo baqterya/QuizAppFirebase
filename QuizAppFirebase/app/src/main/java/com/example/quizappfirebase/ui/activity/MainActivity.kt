@@ -1,14 +1,10 @@
 package com.example.quizappfirebase.ui.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.widget.Toolbar
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.User

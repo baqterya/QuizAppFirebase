@@ -18,7 +18,6 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class AdapterListAllQuestionSets(options: FirestoreRecyclerOptions<QuestionSet>)

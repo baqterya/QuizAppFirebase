@@ -1,20 +1,19 @@
 package com.example.quizappfirebase.ui.fragment
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.NumberPicker
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavDirections
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.example.quizappfirebase.R
-import com.example.quizappfirebase.data.QuestionAndAnswer
 import com.example.quizappfirebase.databinding.FragmentQuizModePickerBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

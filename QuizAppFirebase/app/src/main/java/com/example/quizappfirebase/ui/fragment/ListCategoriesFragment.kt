@@ -1,17 +1,13 @@
 package com.example.quizappfirebase.ui.fragment
 
 import android.os.Bundle
-import android.text.TextUtils
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.afollestad.materialdialogs.MaterialDialog
-import com.afollestad.materialdialogs.customview.customView
-import com.example.quizappfirebase.R
 import com.example.quizappfirebase.data.Category
 import com.example.quizappfirebase.databinding.FragmentListCategoriesBinding
 import com.example.quizappfirebase.ui.fragment.fragmentutils.AdapterListCategories

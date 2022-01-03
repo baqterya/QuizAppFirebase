@@ -1,6 +1,5 @@
 package com.example.quizappfirebase.ui.fragment.fragmentutils
 
-import android.text.Editable
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View

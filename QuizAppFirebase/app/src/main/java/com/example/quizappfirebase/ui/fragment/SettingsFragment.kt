@@ -7,19 +7,19 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import androidx.fragment.app.Fragment
+import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TimePicker
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.quizappfirebase.alarm.TimerExpiredReceiver
 import com.example.quizappfirebase.databinding.FragmentSettingsBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import android.text.format.DateFormat
-import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
 class SettingsFragment : Fragment(), TimePickerDialog.OnTimeSetListener {
