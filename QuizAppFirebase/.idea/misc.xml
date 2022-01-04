@@ -16,11 +16,21 @@
         <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/recycler_view_question_and_answer_user.xml" value="0.25416666666666665" />
         <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/recycler_view_question_set_all.xml" value="0.25416666666666665" />
         <entry key="..\:/projekty/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/recycler_view_question_set_user.xml" value="0.25416666666666665" />
+        <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable-anydpi/ic_add.xml" value="0.17037037037037037" />
+        <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable-anydpi/ic_edit_white.xml" value="0.36944444444444446" />
+        <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable-anydpi/ic_explore.xml" value="0.36944444444444446" />
+        <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable-anydpi/ic_question_set_white.xml" value="0.36944444444444446" />
+        <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable-anydpi/ic_remove_white.xml" value="0.36944444444444446" />
+        <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable-anydpi/ic_settings.xml" value="0.36944444444444446" />
+        <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable-anydpi/ic_star_border.xml" value="0.36944444444444446" />
+        <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable-anydpi/ic_star_border_white.xml" value="0.36944444444444446" />
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable-anydpi/ic_star_full.xml" value="0.5703125" />
+        <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable-anydpi/ic_star_full_white.xml" value="0.36944444444444446" />
+        <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable-anydpi/ic_user_sets.xml" value="0.36944444444444446" />
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.346875" />
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/drawable/ic_launcher_background.xml" value="0.346875" />
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/activity_login.xml" value="0.2695035460992908" />
-        <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/activity_main.xml" value="0.29775280898876405" />
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/activity_quiz.xml" value="0.5541666666666667" />
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/dialog_action_picker.xml" value="0.5541666666666667" />
         <entry key="..\:/projekty/android/kotlin/QuizAppFirebase/QuizAppFirebase/app/src/main/res/layout/dialog_action_picker_category.xml" value="0.5541666666666667" />
